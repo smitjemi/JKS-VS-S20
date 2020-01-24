@@ -1,16 +1,14 @@
-﻿Option Explicit On
-Option Strict On
+﻿Option Strict On
+Option Explicit On
 'Jemika Smith
 'RCET0265
-'Spring 2020
-'Say My Name
-'https://github.com/smitjemi/JKS-VS-S20
-Module sayMyNname
+'Spring2020
+'SayMyNameAgain
+Module SayMyNameAgain
 
     Sub Main()
-        'promt user for a message
+        'prompt user for a message
         'then display the message
-
         Dim userMessage As String
         Console.WriteLine("Hello, what is your name?")
         userMessage = Console.ReadLine()
@@ -20,10 +18,8 @@ Module sayMyNname
         ElseIf userMessage = "Joe" Then
             Console.WriteLine(" Are you ready to become a Padawan, " & userMessage & "?")
         ElseIf userMessage = "Jemika" Then
-            Console.WriteLine(" Are you ready to train your Padawan" & userMessage & "?")
-
+            Console.WriteLine(" Are you ready to train your Padawan " & userMessage & "?")
         End If
-
     End Sub
 
 End Module
