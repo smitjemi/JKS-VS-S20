@@ -31,13 +31,16 @@ Module SimpleCalculator
                 Try
                     Console.WriteLine(CInt(userMessage) + CInt(userMessage2))
                 Catch ex As Exception
-                    'Console.WriteLine(ex.Message.ToString)
+                    Console.WriteLine(ex.Message.ToString)
+                    Console.WriteLine(ex.ToString)
                 End Try
             ElseIf userMessage = "Multiply" Or userMessage = "*" Then
                 Try
                     Console.WriteLine(CInt(userMessage) * CInt(userMessage2))
-                Catch ex As Exception
+                Catch ex As InvalidCastException
                     Console.WriteLine("ERROR, Please enter a whole number")
+                Catch ex As Exception
+                    Console.WriteLine("You Broke it")
                 End Try
             Else
                 Console.WriteLine("Invalid Selection")
