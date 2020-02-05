@@ -23,7 +23,9 @@ Module MySub
         'Console.WriteLine(myNumber)
 
         'DoMath(7, 5, "*")
-        ShowPattern(5)
+        'For i = 1 To 80 Step 20
+        ShowPattern(27, "JEM")
+        'Next
         Console.ReadLine()
     End Sub
     Sub MySub(myNumber As Integer)
@@ -54,12 +56,18 @@ Module MySub
         End If
         Console.WriteLine(result)
     End Sub
-    Sub ShowPattern(length As Integer)
-        Dim character As String
+    Sub ShowPattern(length As Integer, character As String)
+        'Dim character As String
         Dim pattern As String
-        character = "*"
-        For index = 1 To length
+        Console.WriteLine(Len(character))
+        'character = "*"
+        pattern = ""
+        For index = 1 To length Step 1
             pattern &= character
+            Console.WriteLine(pattern)
+        Next
+        For index = length - 1 To 1 Step -1
+            pattern = Left(pattern, index * Len(character))
             Console.WriteLine(pattern)
         Next
 

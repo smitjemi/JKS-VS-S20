@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BetterCalculator2-5-20", "BetterCalculator2-5-20.vbproj", "{E48AFF47-B314-4781-B04D-EB09F03A3B4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E48AFF47-B314-4781-B04D-EB09F03A3B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48AFF47-B314-4781-B04D-EB09F03A3B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48AFF47-B314-4781-B04D-EB09F03A3B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48AFF47-B314-4781-B04D-EB09F03A3B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45B8E1DD-89CF-415D-80F6-734A03F6C373}
+	EndGlobalSection
+EndGlobal
