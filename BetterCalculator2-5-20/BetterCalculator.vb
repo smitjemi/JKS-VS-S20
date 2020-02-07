@@ -13,94 +13,90 @@ Module BetterCalculator
         Dim secondNumber As Integer
         Dim userChoice As String
         Dim quitProgram As Boolean
-        Dim promtUser As Boolean
+        Dim promptUser As Boolean
+        Dim userInput1 As String
+        Dim userInput2 As String
 
-        promtUser = True
+        promptUser = True
         quitProgram = False
 
         Do While quitProgram = False
             'prompt user for two numbers
-            Console.WriteLine("Please enter a first number...")
-            Do While promtUser = True
+            Console.Write("Please enter a first number...")
+            Do While promptUser = True
+                userInput1 = Console.ReadLine()
                 Try
-                    firstNumber = CInt(Console.ReadLine())
-                    promtUser = False
+                    firstNumber = CInt(userInput1)
+                    promptUser = False
+                    Console.WriteLine("You Entered """ & firstNumber & """")
                 Catch ex As Exception
-                    Console.WriteLine("Please enter a whole number")
-                    promtUser = True
+                    If userInput1 = "q" Then
+                        promptUser = False
+                        quitProgram = True
+                    Else
+                        Console.WriteLine("You Entered """ & userInput1 & """. Please enter a whole number")
+                        promptUser = True
+                    End If
+
                 End Try
             Loop
-
-            Console.WriteLine("Please enter a second number...")
-            Try
-                secondNumber = CInt(Console.ReadLine())
-            Catch ex As Exception
-                Console.WriteLine("Please enter a whole number")
-            End Try
-
+            promptUser = True
+            Do While promptUser = True And quitProgram = False
+                Console.Write("Please enter a second number...")
+                userInput2 = Console.ReadLine()
+                Try
+                    secondNumber = CInt(userInput2)
+                    promptUser = False
+                    Console.WriteLine("You Entered """ & secondNumber & """")
+                Catch ex As Exception
+                    If userInput2 = "q" Then
+                        promptUser = False
+                        quitProgram = True
+                    Else
+                        Console.WriteLine("You Entered """ & userInput2 & """. Please enter a whole number")
+                        promptUser = True
+                    End If
+                End Try
+            Loop
+            promptUser = True
             'prompt user for sum or product choice
             'perform proper operation
-            Console.WriteLine("Please Choose an Option")
-            Console.WriteLine("1. Add")
-            Console.WriteLine("2. Multiply")
-            Console.WriteLine("3. Subtract")
-            Console.WriteLine("4. Divide")
-            userChoice = Console.ReadLine()
+            Do While promptUser = True And quitProgram = False
+                Console.WriteLine("Please Choose an Option")
+                Console.WriteLine("1. Add")
+                Console.WriteLine("2. Multiply")
+                Console.WriteLine("3. Subtract")
+                Console.WriteLine("4. Divide")
+                userChoice = Console.ReadLine()
+                Console.WriteLine("You Entered """ & userChoice & """")
 
-            'Determine the user's choice
-            If userChoice = "1" Then
-                Try
-                    Console.WriteLine(firstNumber + secondNumber)
-                Catch ex As InvalidCastException
-                    Console.WriteLine("Please enter a whole number")
-                Catch ex As Exception
-                    Console.WriteLine("You broke it")
-                End Try
-
-            ElseIf userChoice = "2" Then
-                Try
-                    Console.WriteLine(firstNumber * secondNumber)
-                Catch ex As InvalidCastException
-                    Console.WriteLine("Please enter a whole number")
-                Catch ex As Exception
-                    Console.WriteLine("You broke it")
-                End Try
-
-            ElseIf userChoice = "3" Then
-                Try
-                    Console.WriteLine(firstNumber - secondNumber)
-                Catch ex As InvalidCastException
-                    Console.WriteLine("Please enter a whole number")
-                Catch ex As Exception
-                    Console.WriteLine("You broke it")
-                End Try
-
-            ElseIf userChoice = "4" Then
-                Try
-                    Console.WriteLine(firstNumber / secondNumber)
-                Catch ex As InvalidCastException
-                    Console.WriteLine("Please enter a whole number")
-                Catch ex As Exception
-                    Console.WriteLine("You broke it")
-                End Try
-            Else
-
-                Console.WriteLine("Invalid Selection")
-
-            End If
-
+                'Determine the user's choice
+                If userChoice = "1" Then
+                    promptUser = False
+                    Console.WriteLine(firstNumber & " + " & secondNumber & " = " & firstNumber + secondNumber)
+                ElseIf userChoice = "2" Then
+                    promptUser = False
+                    Console.WriteLine(firstNumber & " * " & secondNumber & " = " & firstNumber + secondNumber)
+                ElseIf userChoice = "3" Then
+                    promptUser = False
+                    Console.WriteLine(firstNumber & " - " & secondNumber & " = " & firstNumber + secondNumber)
+                ElseIf userChoice = "4" Then
+                    promptUser = False
+                    Console.WriteLine(firstNumber & " / " & secondNumber & " = " & firstNumber + secondNumber)
+                ElseIf userChoice = "q" Then
+                    promptUser = False
+                    quitProgram = True
+                Else
+                    Console.WriteLine("Invalid Selection")
+                    promptUser = True
+                End If
+            Loop
             'display result prompt to end
-            Console.WriteLine("Have a nice day...")
-            Console.WriteLine("Press Enter To Run Again. Enter Q to quit.")
-
-            If Console.ReadLine() = "q" Then
-                quitProgram = True
-            Else
-                quitProgram = False
-            End If
-
-            Console.Clear()
+            promptUser = True
         Loop
+        Console.WriteLine("Have a nice day...")
+        Console.ReadLine()
+
     End Sub
 
 End Module
