@@ -6,7 +6,19 @@
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         Dim displayText As String
 
-        displayText = NameTextBox.Text & StreetTextBox.Text & StateTextBox.Text
+        displayText = NameTextBox.Text & vbNewLine & StreetTextBox.Text & vbNewLine & StateTextBox.Text
+
         DisplayLabel.Text = displayText
+    End Sub
+
+    Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click
+        If CheckBox1.Checked = True Then
+            DisplayLabel.Text = NameTextBox.Text
+        End If
+
+    End Sub
+
+    Private Sub FormControlsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        RadioButton2.Checked = True
     End Sub
 End Class
