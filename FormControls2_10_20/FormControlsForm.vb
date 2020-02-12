@@ -15,10 +15,16 @@
         If CheckBox1.Checked = True Then
             DisplayLabel.Text = NameTextBox.Text
         End If
-
+        If CheckBox2.Checked = True Then
+            MsgBox("Hello, Your Data is No Good!!")
+        End If
+        If CheckBox3.Checked = True Then
+            UserPictureBox.Image = My.Resources.puppy
+        End If
     End Sub
 
     Private Sub FormControlsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         RadioButton2.Checked = True
     End Sub
+
 End Class
