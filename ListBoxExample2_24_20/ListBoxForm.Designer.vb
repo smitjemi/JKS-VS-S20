@@ -78,6 +78,7 @@ Partial Class ListBoxForm
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(241, 20)
         Me.FirstNameTextBox.TabIndex = 5
+        Me.FirstNameTextBox.TabStop = False
         '
         'LastNameTextBox
         '
