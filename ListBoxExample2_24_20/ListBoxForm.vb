@@ -9,8 +9,8 @@ Option Explicit On
 Public Class ListBoxForm
     Private Sub ListBoxForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         'DataListBox
-        FirstNameTextBox.Text = "Rey"
-        LastNameTextBox.Text = "Skywalker"
+        FirstNameTextBox.Text = "Jemika"
+        LastNameTextBox.Text = "Smith"
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
@@ -24,12 +24,11 @@ Public Class ListBoxForm
     Private Sub DataListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataListBox.SelectedIndexChanged
         Dim index As Integer
         Me.Text = DataListBox.SelectedIndex.ToString
-        'TODO add selected to first name and last name text box
         index = InStr(DataListBox.SelectedItem.ToString, " ")
-        FirstNameTextBox.Text = Strings.Left(DataListBox.SelectedItem.ToString, index)
-        'TODO Right does not work
-        LastNameTextBox.Text = Strings.Right(DataListBox.SelectedItem.ToString, index)
+        FirstNameTextBox.Text = Trim(Strings.Left(DataListBox.SelectedItem.ToString, index))
+        LastNameTextBox.Text = Trim(Strings.Mid(DataListBox.SelectedItem.ToString, index, Len(DataListBox.SelectedItem.ToString)))
     End Sub
+
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
