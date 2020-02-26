@@ -16,11 +16,6 @@ Public Class ListBoxForm
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
         DataListBox.Items.Add(FirstNameTextBox.Text & " " & LastNameTextBox.Text)
     End Sub
-
-    Private Sub ClearAllButton_Click(sender As Object, e As EventArgs) Handles ClearAllButton.Click
-        DataListBox.Items.Clear()
-    End Sub
-
     Private Sub DataListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DataListBox.SelectedIndexChanged
         Dim index As Integer
         Me.Text = DataListBox.SelectedIndex.ToString
@@ -28,7 +23,14 @@ Public Class ListBoxForm
         FirstNameTextBox.Text = Trim(Strings.Left(DataListBox.SelectedItem.ToString, index))
         LastNameTextBox.Text = Trim(Strings.Mid(DataListBox.SelectedItem.ToString, index, Len(DataListBox.SelectedItem.ToString)))
     End Sub
-
+    Sub Tester()
+        Dim someNumber As Double
+        someNumber = 10 * Math.Sin(Math.PI / 2)
+        Console.WriteLine(Math.PI)
+    End Sub
+    Private Sub ClearAllButton_Click(sender As Object, e As EventArgs) Handles ClearAllButton.Click
+        DataListBox.Items.Clear()
+    End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
