@@ -12,8 +12,9 @@ Public Class AccumulateMessage
         MsgBox(UserMessages(True, "", False))
     End Sub
     Function UserMessages(addMessage As Boolean, message As String, clearMessage As Boolean) As String
-        Static formattedMessages As String '= ""
+        Static formattedMessages As String = ""
         formattedMessages &= message & vbNewLine
+
         Return formattedMessages
     End Function
 End Class
