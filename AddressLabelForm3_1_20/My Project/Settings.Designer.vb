@@ -64,9 +64,9 @@ Namespace My
     Friend Module MySettingsProperty
 
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
-        Friend ReadOnly Property Settings() As Global.AccumulateMessage2_24_20.My.MySettings
+        Friend ReadOnly Property Settings() As Global.AddressLabelForm3_1_20.My.MySettings
             Get
-                Return Global.AccumulateMessage2_24_20.My.MySettings.Default
+                Return Global.AddressLabelForm3_1_20.My.MySettings.Default
             End Get
         End Property
     End Module

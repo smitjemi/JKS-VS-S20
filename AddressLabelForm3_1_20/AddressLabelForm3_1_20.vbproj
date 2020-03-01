@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33B26944-98DD-4C30-8442-7086D393C5B6}</ProjectGuid>
+    <ProjectGuid>{FB74A4C6-8DB8-415B-9B98-2603A6982954}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>AccumulateMessage2_24_20.My.MyApplication</StartupObject>
-    <RootNamespace>AccumulateMessage2_24_20</RootNamespace>
-    <AssemblyName>AccumulateMessage2_24_20</AssemblyName>
+    <StartupObject>AddressLabelForm3_1_20.My.MyApplication</StartupObject>
+    <RootNamespace>AddressLabelForm3_1_20</RootNamespace>
+    <AssemblyName>AddressLabelForm3_1_20</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>AccumulateMessage2_24_20.xml</DocumentationFile>
+    <DocumentationFile>AddressLabelForm3_1_20.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>AccumulateMessage2_24_20.xml</DocumentationFile>
+    <DocumentationFile>AddressLabelForm3_1_20.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,11 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccumulateMessage.vb">
+    <Compile Include="AddressLabelForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccumulateMessage.Designer.vb">
-      <DependentUpon>AccumulateMessage.vb</DependentUpon>
+    <Compile Include="AddressLabelForm.Designer.vb">
+      <DependentUpon>AddressLabelForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -97,8 +97,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AccumulateMessage.resx">
-      <DependentUpon>AccumulateMessage.vb</DependentUpon>
+    <EmbeddedResource Include="AddressLabelForm.resx">
+      <DependentUpon>AddressLabelForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
