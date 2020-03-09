@@ -42,11 +42,11 @@ Partial Class MathContestForm
         Me.SubtractRadioButton = New System.Windows.Forms.RadioButton()
         Me.MultiplyRadioButton = New System.Windows.Forms.RadioButton()
         Me.DivideRadioButton = New System.Windows.Forms.RadioButton()
-        Me.InputGroupBox = New System.Windows.Forms.GroupBox()
+        Me.StudentInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
         Me.MathGroupBox = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.InputGroupBox.SuspendLayout()
+        Me.StudentInfoGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
         Me.MathGroupBox.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -230,20 +230,20 @@ Partial Class MathContestForm
         Me.DivideRadioButton.Text = "Divide"
         Me.DivideRadioButton.UseVisualStyleBackColor = True
         '
-        'InputGroupBox
+        'StudentInfoGroupBox
         '
-        Me.InputGroupBox.Controls.Add(Me.NameTextBox)
-        Me.InputGroupBox.Controls.Add(Me.NameLabel)
-        Me.InputGroupBox.Controls.Add(Me.AgeTextBox)
-        Me.InputGroupBox.Controls.Add(Me.AgeLabel)
-        Me.InputGroupBox.Controls.Add(Me.GradeTextBox)
-        Me.InputGroupBox.Controls.Add(Me.GradeLabel)
-        Me.InputGroupBox.Location = New System.Drawing.Point(29, 12)
-        Me.InputGroupBox.Name = "InputGroupBox"
-        Me.InputGroupBox.Size = New System.Drawing.Size(329, 116)
-        Me.InputGroupBox.TabIndex = 20
-        Me.InputGroupBox.TabStop = False
-        Me.InputGroupBox.Text = "Student Information"
+        Me.StudentInfoGroupBox.Controls.Add(Me.NameTextBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.NameLabel)
+        Me.StudentInfoGroupBox.Controls.Add(Me.AgeTextBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.AgeLabel)
+        Me.StudentInfoGroupBox.Controls.Add(Me.GradeTextBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.GradeLabel)
+        Me.StudentInfoGroupBox.Location = New System.Drawing.Point(29, 12)
+        Me.StudentInfoGroupBox.Name = "StudentInfoGroupBox"
+        Me.StudentInfoGroupBox.Size = New System.Drawing.Size(329, 116)
+        Me.StudentInfoGroupBox.TabIndex = 20
+        Me.StudentInfoGroupBox.TabStop = False
+        Me.StudentInfoGroupBox.Text = "Student Information"
         '
         'OutputGroupBox
         '
@@ -293,11 +293,11 @@ Partial Class MathContestForm
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.MathGroupBox)
         Me.Controls.Add(Me.OutputGroupBox)
-        Me.Controls.Add(Me.InputGroupBox)
+        Me.Controls.Add(Me.StudentInfoGroupBox)
         Me.Name = "MathContestForm"
         Me.Text = "Form1"
-        Me.InputGroupBox.ResumeLayout(False)
-        Me.InputGroupBox.PerformLayout()
+        Me.StudentInfoGroupBox.ResumeLayout(False)
+        Me.StudentInfoGroupBox.PerformLayout()
         Me.OutputGroupBox.ResumeLayout(False)
         Me.OutputGroupBox.PerformLayout()
         Me.MathGroupBox.ResumeLayout(False)
@@ -327,7 +327,7 @@ Partial Class MathContestForm
     Friend WithEvents SubtractRadioButton As RadioButton
     Friend WithEvents MultiplyRadioButton As RadioButton
     Friend WithEvents DivideRadioButton As RadioButton
-    Friend WithEvents InputGroupBox As GroupBox
+    Friend WithEvents StudentInfoGroupBox As GroupBox
     Friend WithEvents OutputGroupBox As GroupBox
     Friend WithEvents MathGroupBox As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
