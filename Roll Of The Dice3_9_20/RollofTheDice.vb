@@ -2,59 +2,29 @@
 'RCET0265
 'Spring2020
 'Roll of the Dice
+'https://github.com/smitjemi/JKS-VS-S20
 Module RollofTheDice
-
     Sub Main()
-        Dim DiceSum As Single
-        Console.WriteLine(FirstDice)
-        Console.WriteLine(SecondDice)
-        Console.WriteLine(DiceTotal)
-        Totals(2)
+        Dim sum As Integer
+        Dim MyArray(12, 2) As Decimal
+        Dim rollNumber As Integer = 1000
+        For i = 1 To rollNumber
+            Randomize()
+            sum = Int((6 * Rnd()) + 1) + Int((6 * Rnd()) + 1)
+            MyArray(sum, 2) += 1
+            'myArray(row, column)
+            For j = 2 To 12
+                MyArray(j, 1) = j
+            Next
+        Next
+        'display's array
+        Console.WriteLine("      Total Dice   Times Rolled      ")
+        For i = 2 To 12
+            For j = 1 To 2
+                Console.Write(MyArray(i, j).ToString().PadLeft(15) & "|")
+            Next
+            Console.WriteLine()
+        Next
+        Console.ReadLine()
     End Sub
-    Private Function FirstDice() As Integer
-        Dim maxSingle As Single : maxSingle = 6
-        Dim minSingle As Single : minSingle = 1
-        Dim tempSingle As Single
-        Randomize(System.DateTime.Now.Millisecond)
-        tempSingle = ((maxSingle - minSingle + 1) * Rnd() + maxSingle)
-        FirstDice = Convert.ToInt32(tempSingle)
-        Console.WriteLine("FirstDi =")
-        Console.WriteLine(FirstDice)
-        Console.ReadLine()
-    End Function
-    Private Function SecondDice() As Integer
-        Dim maxSingle As Single : maxSingle = 6
-        Dim minSingle As Single : minSingle = 1
-        Dim tempSingle As Single
-        Randomize(System.DateTime.Now.Millisecond)
-        tempSingle = ((maxSingle - minSingle + 1) * Rnd() + maxSingle)
-        SecondDice = Convert.ToInt32(tempSingle)
-        Console.WriteLine("SecondDi =")
-        Console.WriteLine(SecondDice)
-        Console.ReadLine()
-    End Function
-    Private Function DiceTotal() As Integer
-        Dim DiceSum As Single
-        DiceSum = FirstDice() + SecondDice()
-        Console.WriteLine("FirstDi + SecondDi = " & DiceSum)
-    End Function
-    Private Function Totals(currentNumber As Integer) As Integer
-        Static myArray(currentNumber) As Integer
-        myArray(currentNumber) = 12
-        myArray = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
-        Static numbers(12) As Integer
-        ReDim Preserve myArray(12)
-        Console.ReadLine()
-        'Static myArray(currentNumber) As Integer
-
-        'myArray(1) = currentNumber
-
-        'myArray = {1, 2, 3, 4}
-
-        'myArray(0) = 5
-        'ReDim Preserve myArray(15)
-
-
-        'Console.ReadLine()
-    End Function
 End Module
