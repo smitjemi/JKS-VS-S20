@@ -49,12 +49,6 @@ Public Class MathContestForm
         secondNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
     End Sub
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        If studentAnswer = correctAnswer Then
-            userMessage = "Good job, that is correct!"
-            numbersCorrect += 1
-        Else
-            userMessage = "Sorry, that is not correct. The correct answer was " & correctAnswer & "."
-        End If
         If AddRadioButton.Checked = True Then
             correctAnswer = firstNumber + secondNumber
         ElseIf SubtractRadioButton.Checked = True Then
@@ -68,6 +62,12 @@ Public Class MathContestForm
             SubmitButton.Enabled = True
         Else
             SubmitButton.Enabled = False
+        End If
+        If studentAnswer = correctAnswer Then
+            userMessage = "Good job, that is correct!"
+            numbersCorrect += 1
+        Else
+            userMessage = "Sorry, that is not correct. The correct answer was " & correctAnswer & "."
         End If
         randomNumber = CInt(Int((20 * Rnd()) + 0))
         firstNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
@@ -95,7 +95,7 @@ Public Class MathContestForm
         MultiplyRadioButton.Enabled = False
         DivideRadioButton.Enabled = False
         numbersCorrect = 0
-        numbersCorrect = 0
+        numberOfProblems = 0
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
