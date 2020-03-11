@@ -66,7 +66,8 @@ Public Class MathContestForm
         If studentAnswer = correctAnswer Then
             userMessage = "Good job, that is correct!"
             numbersCorrect += 1
-        Else
+        End If
+        If studentAnswer = False Then
             userMessage = "Sorry, that is not correct. The correct answer was " & correctAnswer & "."
         End If
         randomNumber = CInt(Int((20 * Rnd()) + 0))
