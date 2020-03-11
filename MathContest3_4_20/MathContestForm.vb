@@ -5,9 +5,6 @@
 'https://github.com/smitjemi/JKS-VS-S20
 Public Class MathContestForm
     Dim userMessage As String
-    Dim firstNumberGood As Boolean
-    Dim secNumberGood As Boolean
-    Dim studentAnswerGood As Boolean
     Dim randomNumber As Integer
     Dim studentAnswer As Integer
     Dim correctAnswer As Integer
@@ -15,6 +12,34 @@ Public Class MathContestForm
     Dim secondNumber As Integer
     Dim numbersCorrect As Integer
     Dim numberOfProblems As Integer
+    Dim ageNumber As Integer
+    Dim gradeNumber As Integer
+    Dim firstNumberGood As Boolean
+    Dim secNumberGood As Boolean
+    Dim studentAnswerGood As Boolean
+
+    Private Sub StudentInfoGroupBox_Enter(sender As Object, e As EventArgs) Handles StudentInfoGroupBox.Enter, GradeTextBox.Leave, AgeTextBox.Leave
+        Try
+            ageNumber = CInt(AgeTextBox.Text)
+            If ageNumber < 7 Or ageNumber > 11 Then
+                MsgBox("Student is not eligble to compete.")
+            End If
+        Catch ex As Exception
+            MsgBox("Please enter a valid age.")
+            AgeTextBox.Text = ""
+        End Try
+
+        Try
+            gradeNumber = CInt(GradeTextBox.Text)
+            If gradeNumber < 1 Or gradeNumber > 4 Then
+                MsgBox("Student is not eligble to compete.")
+            End If
+        Catch ex As Exception
+            MsgBox("Please enter a valid grade.")
+            GradeTextBox.Text = ""
+        End Try
+
+    End Sub
     Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         firstNumberGood = False
         secNumberGood = False
@@ -43,7 +68,6 @@ Public Class MathContestForm
         MsgBox("You got " & numbersCorrect & " answers correct out of " & numberOfProblems & " problems.")
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        Dim numbersCorrect As Integer = 0
         'Dim ResetAllControls
         NameTextBox.Text = ""
         GradeTextBox.Text = ""
@@ -60,4 +84,6 @@ Public Class MathContestForm
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
+
+
 End Class
