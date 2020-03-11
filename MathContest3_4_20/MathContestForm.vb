@@ -18,7 +18,7 @@ Public Class MathContestForm
     Dim secNumberGood As Boolean
     Dim studentAnswerGood As Boolean
 
-    Private Sub StudentInfoGroupBox_Enter(sender As Object, e As EventArgs) Handles StudentInfoGroupBox.Enter, GradeTextBox.Leave, AgeTextBox.Leave
+    Private Sub StudentInfoGroupBox_Validate(sender As Object, e As EventArgs) Handles StudentInfoGroupBox.Validated, GradeTextBox.Validated, AgeTextBox.Validated
         Try
             ageNumber = CInt(AgeTextBox.Text)
             If ageNumber < 7 Or ageNumber > 11 Then
@@ -38,14 +38,13 @@ Public Class MathContestForm
             MsgBox("Please enter a valid grade.")
             GradeTextBox.Text = ""
         End Try
-
     End Sub
     Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         firstNumberGood = False
         secNumberGood = False
         studentAnswerGood = False
         'Random Number Generator
-        randomNumber = CInt(Int((4 * Rnd()) + 0))
+        randomNumber = CInt(Int((20 * Rnd()) + 0))
         firstNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
         secondNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
     End Sub
@@ -56,11 +55,27 @@ Public Class MathContestForm
         Else
             userMessage = "Sorry, that is not correct. The correct answer was " & correctAnswer & "."
         End If
+        If AddRadioButton.Checked = True Then
+            correctAnswer = firstNumber + secondNumber
+        ElseIf SubtractRadioButton.Checked = True Then
+            correctAnswer = firstNumber - secondNumber
+        ElseIf DivideRadioButton.Checked = True Then
+            correctAnswer = firstNumber / secondNumber
+        ElseIf MultiplyRadioButton.Checked = True Then
+            correctAnswer = firstNumber * secondNumber
+        End If
+        If firstNumberGood = True And secNumberGood = True And studentAnswerGood = True Then
+            SubmitButton.Enabled = True
+        Else
+            SubmitButton.Enabled = False
+        End If
         randomNumber = CInt(Int((20 * Rnd()) + 0))
         firstNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
         secondNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
         MsgBox(userMessage)
-        studentAnswerTextBox.Text = ""
+        firstNumberTextBox.Text = ""
+        secondNumberTextBox.Text = ""
+        studentAnswer = studentAnswerTextBox.Text
         SummaryButton.Enabled = True
         numberOfProblems += 1
     End Sub
@@ -79,6 +94,7 @@ Public Class MathContestForm
         SubtractRadioButton.Enabled = False
         MultiplyRadioButton.Enabled = False
         DivideRadioButton.Enabled = False
+        numbersCorrect = 0
         numbersCorrect = 0
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
