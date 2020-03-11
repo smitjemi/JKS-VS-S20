@@ -34,7 +34,7 @@ Partial Class MathContestForm
         Me.AgeLabel = New System.Windows.Forms.Label()
         Me.FirstNumberLabel = New System.Windows.Forms.Label()
         Me.GradeLabel = New System.Windows.Forms.Label()
-        Me.SecondNumberTextBox = New System.Windows.Forms.TextBox()
+        Me.secondNumberTextBox = New System.Windows.Forms.TextBox()
         Me.SecondNumberLabel = New System.Windows.Forms.Label()
         Me.studentAnswerTextBox = New System.Windows.Forms.TextBox()
         Me.StudentAnswerLabel = New System.Windows.Forms.Label()
@@ -154,12 +154,12 @@ Partial Class MathContestForm
         Me.GradeLabel.TabIndex = 11
         Me.GradeLabel.Text = "Grade"
         '
-        'SecondNumberTextBox
+        'secondNumberTextBox
         '
-        Me.SecondNumberTextBox.Location = New System.Drawing.Point(182, 39)
-        Me.SecondNumberTextBox.Name = "SecondNumberTextBox"
-        Me.SecondNumberTextBox.Size = New System.Drawing.Size(124, 20)
-        Me.SecondNumberTextBox.TabIndex = 5
+        Me.secondNumberTextBox.Location = New System.Drawing.Point(182, 39)
+        Me.secondNumberTextBox.Name = "secondNumberTextBox"
+        Me.secondNumberTextBox.Size = New System.Drawing.Size(124, 20)
+        Me.secondNumberTextBox.TabIndex = 5
         '
         'SecondNumberLabel
         '
@@ -247,7 +247,7 @@ Partial Class MathContestForm
         '
         'OutputGroupBox
         '
-        Me.OutputGroupBox.Controls.Add(Me.SecondNumberTextBox)
+        Me.OutputGroupBox.Controls.Add(Me.secondNumberTextBox)
         Me.OutputGroupBox.Controls.Add(Me.firstNumberTextBox)
         Me.OutputGroupBox.Controls.Add(Me.FirstNumberLabel)
         Me.OutputGroupBox.Controls.Add(Me.SecondNumberLabel)
@@ -319,7 +319,7 @@ Partial Class MathContestForm
     Friend WithEvents AgeLabel As Label
     Friend WithEvents FirstNumberLabel As Label
     Friend WithEvents GradeLabel As Label
-    Friend WithEvents SecondNumberTextBox As TextBox
+    Friend WithEvents secondNumberTextBox As TextBox
     Friend WithEvents SecondNumberLabel As Label
     Friend WithEvents studentAnswerTextBox As TextBox
     Friend WithEvents StudentAnswerLabel As Label
