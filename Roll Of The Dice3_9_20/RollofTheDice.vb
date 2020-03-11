@@ -19,9 +19,9 @@ Module RollofTheDice
         Next
         'display's array
         Console.WriteLine("      Total Dice   Times Rolled      ")
-        For i = 2 To 12
-            For j = 1 To 2
-                Console.Write(MyArray(i, j).ToString().PadLeft(15) & "|")
+        For i = 1 To 2
+            For j = 2 To 12
+                Console.Write(MyArray(j, i).ToString().PadLeft(3) & "|")
             Next
             Console.WriteLine()
         Next
