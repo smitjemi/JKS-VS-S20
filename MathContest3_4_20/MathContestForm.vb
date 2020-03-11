@@ -13,6 +13,8 @@ Public Class MathContestForm
     Dim correctAnswer As Integer
     Dim firstNumber As Integer
     Dim secondNumber As Integer
+    Dim numbersCorrect As Integer
+    Dim numberOfProblems As Integer
     Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         firstNumberGood = False
         secNumberGood = False
@@ -23,9 +25,6 @@ Public Class MathContestForm
         secondNumberTextBox.Text = Str(Int((20 * Rnd()) + 0))
     End Sub
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        Dim numberOfProblems As Integer
-        Dim numbersCorrect As Integer
-
         If studentAnswer = correctAnswer Then
             userMessage = "Good job, that is correct!"
             numbersCorrect += 1
@@ -41,8 +40,6 @@ Public Class MathContestForm
         numberOfProblems += 1
     End Sub
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
-        Dim numbersCorrect As Integer
-        Dim numberOfProblems As Integer
         MsgBox("You got " & numbersCorrect & " answers correct out of " & numberOfProblems & " problems.")
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
