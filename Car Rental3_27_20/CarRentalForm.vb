@@ -9,14 +9,31 @@ Public Class CarRentalForm
         SummaryButton.Enabled = False
     End Sub
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
+        If ValidateAll() Then
+            'ToDo proceed to calculations and updates 
+            Console.WriteLine("Yes")
+        Else
+            'ToDo alert user
+            Console.WriteLine("Nope")
+            'MsgBox(UserMessages(False, "", False))
+        End If
         'VerifyOdometer()
         'DailyCharge()
         'Discont()
-        Console.WriteLine(MileageCharge(600))
+        'Console.WriteLine(MileageCharge(600))
         MileageCharge(220)
         'Check and Convert to Kilomoters
-        'MsgBox(UserMessages(False, "", False))
+
     End Sub
+    Function ValidateAll() As Boolean
+        Dim Result As Boolean
+        'ToDo perform all validate function
+        'VerifyNoEmpty
+        'VeryifyOdometer()
+        'VerifyNumberOfDays()
+        Result = True
+        Return Result
+    End Function
     Function Discount(totalCharges As Decimal) As Decimal
         Const AAARATE = 0.05D
         Const SENIORRATE = 0.03D
