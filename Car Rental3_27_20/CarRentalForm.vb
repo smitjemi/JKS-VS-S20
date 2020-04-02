@@ -12,6 +12,7 @@ Public Class CarRentalForm
         'VerifyOdometer()
         'DailyCharge()
         'Discont()
+        Console.WriteLine(MileageCharge(600))
         MileageCharge(220)
         'Check and Convert to Kilomoters
         'MsgBox(UserMessages(False, "", False))
@@ -54,9 +55,10 @@ Public Class CarRentalForm
             Case <= 200
                 mileCharge = miles * RATE_FREE
             Case > 500
-                mileCharge = miles * RATE_LOW
+                mileCharge = 300 * RATE_REGULAR
+                mileCharge += (miles - 500) * RATE_LOW
             Case Else
-                mileCharge = miles * RATE_REGULAR
+                mileCharge = (miles - 200) * RATE_REGULAR
         End Select
         Return mileCharge
     End Function
