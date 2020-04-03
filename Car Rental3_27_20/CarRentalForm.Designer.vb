@@ -30,11 +30,11 @@ Partial Class CarRentalForm
         Me.EndOdTextBox = New System.Windows.Forms.TextBox()
         Me.BegOdTextBox = New System.Windows.Forms.TextBox()
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.OweTextBox = New System.Windows.Forms.TextBox()
+        Me.MinusTextBox = New System.Windows.Forms.TextBox()
+        Me.DayTextBox = New System.Windows.Forms.TextBox()
+        Me.MileageTextBox = New System.Windows.Forms.TextBox()
+        Me.MilesDrTextBox = New System.Windows.Forms.TextBox()
         Me.AAACheckBox = New System.Windows.Forms.CheckBox()
         Me.SeniorCheckBox = New System.Windows.Forms.CheckBox()
         Me.MilesRadioButton = New System.Windows.Forms.RadioButton()
@@ -126,45 +126,45 @@ Partial Class CarRentalForm
         Me.ZipTextBox.Size = New System.Drawing.Size(100, 22)
         Me.ZipTextBox.TabIndex = 4
         '
-        'TextBox9
+        'OweTextBox
         '
-        Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(571, 140)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox9.TabIndex = 12
+        Me.OweTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OweTextBox.Location = New System.Drawing.Point(571, 140)
+        Me.OweTextBox.Name = "OweTextBox"
+        Me.OweTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.OweTextBox.TabIndex = 12
         '
-        'TextBox10
+        'MinusTextBox
         '
-        Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(571, 110)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox10.TabIndex = 11
+        Me.MinusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MinusTextBox.Location = New System.Drawing.Point(571, 110)
+        Me.MinusTextBox.Name = "MinusTextBox"
+        Me.MinusTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.MinusTextBox.TabIndex = 11
         '
-        'TextBox11
+        'DayTextBox
         '
-        Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(571, 84)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox11.TabIndex = 10
+        Me.DayTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DayTextBox.Location = New System.Drawing.Point(571, 84)
+        Me.DayTextBox.Name = "DayTextBox"
+        Me.DayTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.DayTextBox.TabIndex = 10
         '
-        'TextBox
+        'MileageTextBox
         '
-        Me.TextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox.Location = New System.Drawing.Point(571, 58)
-        Me.TextBox.Name = "TextBox"
-        Me.TextBox.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox.TabIndex = 9
+        Me.MileageTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MileageTextBox.Location = New System.Drawing.Point(571, 58)
+        Me.MileageTextBox.Name = "MileageTextBox"
+        Me.MileageTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.MileageTextBox.TabIndex = 9
         '
-        'TextBox13
+        'MilesDrTextBox
         '
-        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(571, 33)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(100, 22)
-        Me.TextBox13.TabIndex = 8
+        Me.MilesDrTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MilesDrTextBox.Location = New System.Drawing.Point(571, 33)
+        Me.MilesDrTextBox.Name = "MilesDrTextBox"
+        Me.MilesDrTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.MilesDrTextBox.TabIndex = 8
         '
         'AAACheckBox
         '
@@ -422,11 +422,11 @@ Partial Class CarRentalForm
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.CalculateButton)
-        Me.Controls.Add(Me.TextBox9)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.TextBox11)
-        Me.Controls.Add(Me.TextBox)
-        Me.Controls.Add(Me.TextBox13)
+        Me.Controls.Add(Me.OweTextBox)
+        Me.Controls.Add(Me.MinusTextBox)
+        Me.Controls.Add(Me.DayTextBox)
+        Me.Controls.Add(Me.MileageTextBox)
+        Me.Controls.Add(Me.MilesDrTextBox)
         Me.Controls.Add(Me.DaysTextBox)
         Me.Controls.Add(Me.EndOdTextBox)
         Me.Controls.Add(Me.BegOdTextBox)
@@ -454,11 +454,11 @@ Partial Class CarRentalForm
     Friend WithEvents EndOdTextBox As TextBox
     Friend WithEvents BegOdTextBox As TextBox
     Friend WithEvents ZipTextBox As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox As TextBox
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents OweTextBox As TextBox
+    Friend WithEvents MinusTextBox As TextBox
+    Friend WithEvents DayTextBox As TextBox
+    Friend WithEvents MileageTextBox As TextBox
+    Friend WithEvents MilesDrTextBox As TextBox
     Friend WithEvents AAACheckBox As CheckBox
     Friend WithEvents SeniorCheckBox As CheckBox
     Friend WithEvents MilesRadioButton As RadioButton
