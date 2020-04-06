@@ -20,7 +20,6 @@ Public Class CarRentalForm
         Dim numberofDays As Integer
         Dim numberDays As Boolean = False
         Dim miles As Decimal
-
         If NameTextBox.Text = "" Then
             userMessage = "Please enter a Name" & vbNewLine
         End If
@@ -131,17 +130,19 @@ Public Class CarRentalForm
         ElseIf KilometersRadioButton.Checked = True Then
             miles = miles * 1.609D
         End If
+
         Dim totalCharges As Decimal
-        totalCharges = (DayCharTextBox.Text + MileageTextBox.Text)
+        totalCharges = CDec(DayCharTextBox.Text + MileageTextBox.Text)
 
         Dim totalDiscount As Decimal
-        MinusTextBox.Text = totalDiscount
+
         If AAACheckBox.Checked = True Then 'AAA members receive a 5% discount
             totalDiscount = totalCharges * 0.05D
         End If
         If SeniorCheckBox.Checked = True Then 'senior citizens get a 3% discount.
             totalDiscount += totalCharges * 0.03D
         End If
+        MinusTextBox.Text = totalDiscount
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         'Clear User Input
