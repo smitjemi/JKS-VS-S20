@@ -176,7 +176,7 @@ Public Class CarRentalForm
     End Sub
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         Dim stringVariable As String
-        MessageBox.Show(stringVariable = "totalCustomers" & totalCustomers.ToString & vbNewLine & "totalDistance" & totalDistance.ToString & vbNewLine & "totalCharge" & totalCharge.ToString & vbNewLine)
+        stringVariable = "Total Customers:      " & totalCustomers.ToString & vbNewLine & "Total Distance:          " & totalDistance.ToString & vbNewLine & "Total Charge:            " & totalCharge.ToString & vbNewLine
         MessageBox.Show(stringVariable, "Detailed Summary")
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
