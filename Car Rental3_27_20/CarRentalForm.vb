@@ -124,7 +124,7 @@ Public Class CarRentalForm
                 Case <= 200 'First 200 miles driven are always free
                     MileageTextBox.Text = miles * 0
                 Case > 500 'Miles greater than 500 charged at .10 cents per mile.
-                    MileageTextBox.Text += (miles - 500) * 0.1D + 36
+                    MileageTextBox.Text += (miles - 500) * 0.1D
                 Case Else 'Miles after free 200 is charged at .12 cents per mile.
                     MileageTextBox.Text = (miles - 200) * 0.12D
             End Select
@@ -176,7 +176,8 @@ Public Class CarRentalForm
     End Sub
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         Dim stringVariable As String
-        MessageBox.Show(stringVariable = "totalCustomers" & "totalCustomers.ToString" & vbNewLine & "totalDistance" & "totalDistance.ToString" & vbNewLine & "totalCharges" & "totalCharges.ToString" & vbNewLine & "Detailed Summary")
+        MessageBox.Show(stringVariable = "totalCustomers" & totalCustomers.ToString & vbNewLine & "totalDistance" & totalDistance.ToString & vbNewLine & "totalCharge" & totalCharge.ToString & vbNewLine)
+        MessageBox.Show(stringVariable, "Detailed Summary")
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         'MsgBox to exit form
