@@ -32,7 +32,7 @@ Partial Class CarRentalForm
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
         Me.OweTextBox = New System.Windows.Forms.TextBox()
         Me.MinusTextBox = New System.Windows.Forms.TextBox()
-        Me.DayTextBox = New System.Windows.Forms.TextBox()
+        Me.DayCharTextBox = New System.Windows.Forms.TextBox()
         Me.MileageTextBox = New System.Windows.Forms.TextBox()
         Me.MilesDrTextBox = New System.Windows.Forms.TextBox()
         Me.AAACheckBox = New System.Windows.Forms.CheckBox()
@@ -142,13 +142,13 @@ Partial Class CarRentalForm
         Me.MinusTextBox.Size = New System.Drawing.Size(100, 22)
         Me.MinusTextBox.TabIndex = 11
         '
-        'DayTextBox
+        'DayCharTextBox
         '
-        Me.DayTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DayTextBox.Location = New System.Drawing.Point(571, 84)
-        Me.DayTextBox.Name = "DayTextBox"
-        Me.DayTextBox.Size = New System.Drawing.Size(100, 22)
-        Me.DayTextBox.TabIndex = 10
+        Me.DayCharTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DayCharTextBox.Location = New System.Drawing.Point(571, 84)
+        Me.DayCharTextBox.Name = "DayCharTextBox"
+        Me.DayCharTextBox.Size = New System.Drawing.Size(100, 22)
+        Me.DayCharTextBox.TabIndex = 10
         '
         'MileageTextBox
         '
@@ -424,7 +424,7 @@ Partial Class CarRentalForm
         Me.Controls.Add(Me.CalculateButton)
         Me.Controls.Add(Me.OweTextBox)
         Me.Controls.Add(Me.MinusTextBox)
-        Me.Controls.Add(Me.DayTextBox)
+        Me.Controls.Add(Me.DayCharTextBox)
         Me.Controls.Add(Me.MileageTextBox)
         Me.Controls.Add(Me.MilesDrTextBox)
         Me.Controls.Add(Me.DaysTextBox)
@@ -456,7 +456,7 @@ Partial Class CarRentalForm
     Friend WithEvents ZipTextBox As TextBox
     Friend WithEvents OweTextBox As TextBox
     Friend WithEvents MinusTextBox As TextBox
-    Friend WithEvents DayTextBox As TextBox
+    Friend WithEvents DayCharTextBox As TextBox
     Friend WithEvents MileageTextBox As TextBox
     Friend WithEvents MilesDrTextBox As TextBox
     Friend WithEvents AAACheckBox As CheckBox

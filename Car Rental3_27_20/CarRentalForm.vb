@@ -19,9 +19,8 @@ Public Class CarRentalForm
         Dim end1 As Boolean = False
         Dim numberofDays As Integer
         Dim numberDays As Boolean = False
-        Dim mileCharge As Decimal
         Dim miles As Decimal
-        Dim dailyCharge As Decimal
+
         If NameTextBox.Text = "" Then
             userMessage = "Please enter a Name" & vbNewLine
         End If
@@ -82,71 +81,68 @@ Public Class CarRentalForm
             MsgBox(userMessage)
             If beg1 = False Then
                 BegOdTextBox.Text = ""
-                If end1 = False Then
-                    EndOdTextBox.Text = ""
-                    If numberDays = False Then
-                        DaysTextBox.Text = ""
-                    End If
-                End If
-            End If
-            If DaysTextBox.Text = "" Then
-                DaysTextBox.Select()
             End If
             If end1 = False Then
-                EndOdTextBox.Select()
+                EndOdTextBox.Text = ""
             End If
-            If beg1 = False Then
-                BegOdTextBox.Select()
+            If numberDays = False Then
+                DaysTextBox.Text = ""
             End If
-            If ZipTextBox.Text = "" Then
-                ZipTextBox.Select()
-            End If
-            If StateTextBox.Text = "" Then
-                StateTextBox.Select()
-            End If
-            If CityTextBox.Text = "" Then
-                CityTextBox.Select()
-            End If
-            If AddressTextBox.Text = "" Then
-                AddressTextBox.Select()
-            End If
-            If NameTextBox.Text = "" Then
-                NameTextBox.Select()
-            End If
-            ValidateCheckBox = True
         End If
-        ''DailyCharge()
-        dailyCharge = 15
+        If numberofDays = False Then
+            DaysTextBox.Select()
+        End If
+        If end1 = False Then
+            EndOdTextBox.Select()
+        End If
+        If beg1 = False Then
+            BegOdTextBox.Select()
+        End If
+        If ZipTextBox.Text = "" Then
+            ZipTextBox.Select()
+        End If
+        If StateTextBox.Text = "" Then
+            StateTextBox.Select()
+        End If
+        If CityTextBox.Text = "" Then
+            CityTextBox.Select()
+        End If
+        If AddressTextBox.Text = "" Then
+            AddressTextBox.Select()
+        End If
+        If NameTextBox.Text = "" Then
+            NameTextBox.Select()
+        End If
+        ValidateCheckBox = True
+
+        DayCharTextBox.Text = (numberofDays * 15D) 'Daily Charge $15 per day
+
         MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
+        miles = CDec(MilesDrTextBox.Text)
         If MilesRadioButton.Checked = True Then
             Select Case miles
                 Case <= 200 'First 200 miles driven are always free
-                    mileCharge = miles * 0
+                    MileageTextBox.Text = miles * 0
                 Case > 500 'Miles greater than 500 charged at .10 cents per mile.
-                    mileCharge += (miles - 500) * 0.1D + 36
+                    MileageTextBox.Text += (miles - 500) * 0.1D + 36
                 Case Else 'Miles after free 200 is charged at .12 cents per mile.
-                    mileCharge = (miles - 200) * 0.12D
+                    MileageTextBox.Text = (miles - 200) * 0.12D
             End Select
         ElseIf KilometersRadioButton.Checked = True Then
             miles = miles * 1.609D
         End If
-        Dim totalDiscount As Decimal = 0
-        If AAACheckBox.Checked = True Then
+        Dim totalCharges As Decimal
+        totalCharges = (DayCharTextBox.Text + MileageTextBox.Text)
+
+        Dim totalDiscount As Decimal
+        MinusTextBox.Text = totalDiscount
+        If AAACheckBox.Checked = True Then 'AAA members receive a 5% discount
             totalDiscount = totalCharges * 0.05D
         End If
-        If SeniorCheckBox.Checked = True Then
+        If SeniorCheckBox.Checked = True Then 'senior citizens get a 3% discount.
             totalDiscount += totalCharges * 0.03D
         End If
     End Sub
-    Function UserMessages(addMessage As Boolean, message As String, clearMessage As Boolean) As String
-        Static formattedMessages As String
-        If clearMessage = True Then
-            formattedMessages = ""
-        ElseIf addMessage = True Then
-            formattedMessages &= message & vbNewLine
-        End If
-        Return formattedMessages
-    End Function
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         'Clear User Input
         NameTextBox.Text = ""
@@ -165,9 +161,9 @@ Public Class CarRentalForm
 
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         MessageBox.Show("total message", "Detailed Summary")
-        totalCustomers += CInt(NameTextBox.Text)
-        totalDistance += CDec(MilesDrTextBox.Text)
-        totalCharges += CDec(OweTextBox.Text)
+        totalCustomers += CInt(NameTextBox.Text) 'Total number of customers
+        totalDistance += CDec(MilesDrTextBox.Text) 'Total distance driven in miles
+        totalCharges += CDec(OweTextBox.Text) 'Total charges
 
     End Sub
 
