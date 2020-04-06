@@ -19,7 +19,10 @@ Public Class CarRentalForm
         Dim end1 As Boolean = False
         Dim numberofDays As Integer
         Dim numberDays As Boolean = False
+        Dim daysCharged As Decimal
         Dim miles As Decimal
+        Dim mileageTotal As Decimal
+        Dim YouOwe As Decimal
         If NameTextBox.Text = "" Then
             userMessage = "Please enter a Name" & vbNewLine
         End If
@@ -114,24 +117,24 @@ Public Class CarRentalForm
         End If
         ValidateCheckBox = True
 
-        DayCharTextBox.Text = (numberofDays * 15D) 'Daily Charge $15 per day
-        'DayCharTextBox.Text = DayCharTextBox().ToString("C")
+        daysCharged = (numberofDays * 15D) 'Daily Charge $15 per day
+        DayCharTextBox.Text = daysCharged.ToString("C")
 
         MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
         miles = CDec(MilesDrTextBox.Text)
         If MilesRadioButton.Checked = True Then
             Select Case miles
                 Case <= 200 'First 200 miles driven are always free
-                    MileageTextBox.Text = miles * 0
+                    mileageTotal = miles * 0
                 Case > 500 'Miles greater than 500 charged at .10 cents per mile.
-                    MileageTextBox.Text += (miles - 500) * 0.1D
+                    mileageTotal += (miles - 500D) * 0.1D + 36D
                 Case Else 'Miles after free 200 is charged at .12 cents per mile.
-                    MileageTextBox.Text = (miles - 200) * 0.12D
+                    mileageTotal = (miles - 200D) * 0.12D
             End Select
         ElseIf KilometersRadioButton.Checked = True Then
             miles = miles * 1.609D
         End If
-        'MileageTextBox.Text = MileageTextBox().ToString("C")
+        MileageTextBox.Text = mileageTotal.ToString("C")
 
         Dim totalCharges As Decimal
         totalCharges = CDec(DayCharTextBox.Text) + CDec(MileageTextBox.Text)
@@ -144,10 +147,10 @@ Public Class CarRentalForm
             totalDiscount += totalCharges * 0.03D
         End If
         MinusTextBox.Text = totalDiscount
-        'MinusTextBox.Text = MinusTextBox().ToString("C")
+        MinusTextBox.Text = totalDiscount.ToString("C")
 
-        OweTextBox.Text = CDec(totalCharges - totalDiscount)
-        'OweTextBox.Text = OweTextBox().ToString("C")
+        YouOwe = CDec(totalCharges - totalDiscount)
+        OweTextBox.Text = YouOwe.ToString("C")
         SummaryButton.Enabled = True
 
         totalCustomers += 1 'Total number of customers for the day
@@ -176,7 +179,9 @@ Public Class CarRentalForm
     End Sub
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         Dim stringVariable As String
-        stringVariable = "Total Customers:      " & totalCustomers.ToString & vbNewLine & "Total Distance:          " & totalDistance.ToString & vbNewLine & "Total Charge:            " & totalCharge.ToString & vbNewLine
+        stringVariable = "Total Customers:      " & totalCustomers.ToString & vbNewLine &
+            "Total Distance:          " & totalDistance.ToString("C") & vbNewLine &
+            "Total Charge:            " & totalCharge.ToString("C")
         MessageBox.Show(stringVariable, "Detailed Summary")
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
