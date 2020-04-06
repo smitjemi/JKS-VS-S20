@@ -6,7 +6,7 @@
 Public Class CarRentalForm
     Dim totalCustomers As Integer
     Dim totalDistance As Decimal
-    Dim totalCharges As Decimal
+    Dim totalCharge As Decimal
     Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         SummaryButton.Enabled = False
     End Sub
@@ -115,6 +115,7 @@ Public Class CarRentalForm
         ValidateCheckBox = True
 
         DayCharTextBox.Text = (numberofDays * 15D) 'Daily Charge $15 per day
+        'DayCharTextBox.Text = DayCharTextBox().ToString("C")
 
         MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
         miles = CDec(MilesDrTextBox.Text)
@@ -130,12 +131,12 @@ Public Class CarRentalForm
         ElseIf KilometersRadioButton.Checked = True Then
             miles = miles * 1.609D
         End If
+        'MileageTextBox.Text = MileageTextBox().ToString("C")
 
         Dim totalCharges As Decimal
-        totalCharges = CDec(DayCharTextBox.Text + MileageTextBox.Text)
+        totalCharges = CDec(DayCharTextBox.Text) + CDec(MileageTextBox.Text)
 
         Dim totalDiscount As Decimal
-
         If AAACheckBox.Checked = True Then 'AAA members receive a 5% discount
             totalDiscount = totalCharges * 0.05D
         End If
@@ -143,6 +144,15 @@ Public Class CarRentalForm
             totalDiscount += totalCharges * 0.03D
         End If
         MinusTextBox.Text = totalDiscount
+        'MinusTextBox.Text = MinusTextBox().ToString("C")
+
+        OweTextBox.Text = CDec(totalCharges - totalDiscount)
+        'OweTextBox.Text = OweTextBox().ToString("C")
+        SummaryButton.Enabled = True
+
+        totalCustomers += 1 'Total number of customers for the day
+        totalDistance += CDec(MilesDrTextBox.Text) 'Total distance driven in miles for the day
+        totalCharge += CDec(OweTextBox.Text) 'Total charges for the day
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         'Clear User Input
@@ -154,25 +164,25 @@ Public Class CarRentalForm
         BegOdTextBox.Text = ""
         EndOdTextBox.Text = ""
         DaysTextBox.Text = ""
+        MilesDrTextBox.Text = ""
+        DayCharTextBox.Text = ""
+        MileageTextBox.Text = ""
+        MinusTextBox.Text = ""
+        OweTextBox.Text = ""
         AAACheckBox.Checked = False
         SeniorCheckBox.Checked = False
         MilesRadioButton.Select()
         'Clear Output
     End Sub
-
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
-        MessageBox.Show("total message", "Detailed Summary")
-        totalCustomers += CInt(NameTextBox.Text) 'Total number of customers
-        totalDistance += CDec(MilesDrTextBox.Text) 'Total distance driven in miles
-        totalCharges += CDec(OweTextBox.Text) 'Total charges
-
+        Dim stringVariable As String
+        MessageBox.Show(stringVariable = "totalCustomers" & "totalCustomers.ToString" & vbNewLine & "totalDistance" & "totalDistance.ToString" & vbNewLine & "totalCharges" & "totalCharges.ToString" & vbNewLine & "Detailed Summary")
     End Sub
-
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         'MsgBox to exit form
-        Dim result As DialogResult
-        result = CType(MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2), DialogResult)
-        If result = DialogResult.Yes Then
+        Dim Result As DialogResult
+        Result = CType(MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2), DialogResult)
+        If Result = DialogResult.Yes Then
             Me.Close()
         End If
     End Sub
