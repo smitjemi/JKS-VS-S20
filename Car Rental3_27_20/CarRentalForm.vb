@@ -71,7 +71,7 @@ Public Class CarRentalForm
                 userMessage &= "Please enter a Valid Number of Days"
             End Try
             If beg1 = True And end1 = True Then
-                If beg1 < end1 Then
+                If begOd < endOd Then
                     'ValidateCheckBox = True
                 Else
                     userMessage &= "Beginning Odometer must be less than End Odometer"
@@ -115,9 +115,9 @@ Public Class CarRentalForm
             End If
             ValidateCheckBox = True
         End If
-
         ''DailyCharge()
         dailyCharge = 15
+        MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
         If MilesRadioButton.Checked = True Then
             Select Case miles
                 Case <= 200 'First 200 miles driven are always free
