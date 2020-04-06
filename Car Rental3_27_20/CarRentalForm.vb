@@ -90,6 +90,8 @@ Public Class CarRentalForm
             If numberDays = False Then
                 DaysTextBox.Text = ""
             End If
+        Else
+            ValidateCheckBox = True
         End If
         If numberofDays = False Then
             DaysTextBox.Select()
@@ -115,7 +117,7 @@ Public Class CarRentalForm
         If NameTextBox.Text = "" Then
             NameTextBox.Select()
         End If
-        ValidateCheckBox = True
+
 
         daysCharged = (numberofDays * 15D) 'Daily Charge $15 per day
         DayCharTextBox.Text = daysCharged.ToString("C")
