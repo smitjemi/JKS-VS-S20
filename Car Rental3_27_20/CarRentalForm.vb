@@ -134,7 +134,7 @@ Public Class CarRentalForm
                     mileageTotal = (miles - 200D) * 0.12D
             End Select
         ElseIf KilometersRadioButton.Checked = True Then
-            miles = miles * 1.609D
+            mileageTotal = miles * 0.62D
         End If
         MileageTextBox.Text = mileageTotal.ToString("C")
 
@@ -189,7 +189,7 @@ Public Class CarRentalForm
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         'MsgBox to exit form
         Dim Result As DialogResult
-        Result = CType(MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2), DialogResult)
+        Result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
         If Result = DialogResult.Yes Then
             Me.Close()
         End If
