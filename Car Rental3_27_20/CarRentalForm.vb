@@ -120,21 +120,20 @@ Public Class CarRentalForm
         If ValidateCheckBox = True Then
             daysCharged = (numberofDays * 15D) 'Daily Charge $15 per day
             DayCharTextBox.Text = daysCharged.ToString("C")
-
-            MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
-            miles = CDec(MilesDrTextBox.Text)
             If MilesRadioButton.Checked = True Then
-                Select Case miles
-                    Case <= 200 'First 200 miles driven are always free
-                        mileageTotal = miles * 0
-                    Case > 500 'Miles greater than 500 charged at .10 cents per mile.
-                        mileageTotal += (miles - 500D) * 0.1D + 36D
-                    Case Else 'Miles after free 200 is charged at .12 cents per mile.
-                        mileageTotal = (miles - 200D) * 0.12D
-                End Select
-            ElseIf KilometersRadioButton.Checked = True Then
-                mileageTotal = miles * 0.62D
+                miles = endOd - begOd
+            Else
+                miles = (endOd - begOd) * 0.62D
             End If
+            MilesDrTextBox.Text = miles.ToString
+            Select Case miles
+                Case <= 200 'First 200 miles driven are always free
+                    mileageTotal = miles * 0
+                Case > 500 'Miles greater than 500 charged at .10 cents per mile.
+                    mileageTotal += (miles - 500D) * 0.1D + 36D
+                Case Else 'Miles after free 200 is charged at .12 cents per mile.
+                    mileageTotal = (miles - 200D) * 0.12D
+            End Select
             MileageTextBox.Text = mileageTotal.ToString("C")
 
             Dim totalCharges As Decimal

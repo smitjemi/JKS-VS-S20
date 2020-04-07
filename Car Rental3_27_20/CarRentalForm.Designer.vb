@@ -189,6 +189,7 @@ Partial Class CarRentalForm
         'MilesRadioButton
         '
         Me.MilesRadioButton.AutoSize = True
+        Me.MilesRadioButton.Checked = True
         Me.MilesRadioButton.Location = New System.Drawing.Point(7, 27)
         Me.MilesRadioButton.Name = "MilesRadioButton"
         Me.MilesRadioButton.Size = New System.Drawing.Size(63, 24)
@@ -204,7 +205,6 @@ Partial Class CarRentalForm
         Me.KilometersRadioButton.Name = "KilometersRadioButton"
         Me.KilometersRadioButton.Size = New System.Drawing.Size(101, 24)
         Me.KilometersRadioButton.TabIndex = 16
-        Me.KilometersRadioButton.TabStop = True
         Me.KilometersRadioButton.Text = "Kilometers"
         Me.KilometersRadioButton.UseVisualStyleBackColor = True
         '
