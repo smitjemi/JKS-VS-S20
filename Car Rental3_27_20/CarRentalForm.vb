@@ -87,7 +87,7 @@ Public Class CarRentalForm
             If end1 = False Then
                 EndOdTextBox.Text = ""
             End If
-            If numberDays = False Then
+            If numberofDays = False Then
                 DaysTextBox.Text = ""
             End If
         Else
@@ -117,47 +117,47 @@ Public Class CarRentalForm
         If NameTextBox.Text = "" Then
             NameTextBox.Select()
         End If
+        If ValidateCheckBox = True Then
+            daysCharged = (numberofDays * 15D) 'Daily Charge $15 per day
+            DayCharTextBox.Text = daysCharged.ToString("C")
 
+            MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
+            miles = CDec(MilesDrTextBox.Text)
+            If MilesRadioButton.Checked = True Then
+                Select Case miles
+                    Case <= 200 'First 200 miles driven are always free
+                        mileageTotal = miles * 0
+                    Case > 500 'Miles greater than 500 charged at .10 cents per mile.
+                        mileageTotal += (miles - 500D) * 0.1D + 36D
+                    Case Else 'Miles after free 200 is charged at .12 cents per mile.
+                        mileageTotal = (miles - 200D) * 0.12D
+                End Select
+            ElseIf KilometersRadioButton.Checked = True Then
+                mileageTotal = miles * 0.62D
+            End If
+            MileageTextBox.Text = mileageTotal.ToString("C")
 
-        daysCharged = (numberofDays * 15D) 'Daily Charge $15 per day
-        DayCharTextBox.Text = daysCharged.ToString("C")
+            Dim totalCharges As Decimal
+            totalCharges = CDec(DayCharTextBox.Text) + CDec(MileageTextBox.Text)
 
-        MilesDrTextBox.Text = CDec(EndOdTextBox.Text) - CDec(BegOdTextBox.Text)
-        miles = CDec(MilesDrTextBox.Text)
-        If MilesRadioButton.Checked = True Then
-            Select Case miles
-                Case <= 200 'First 200 miles driven are always free
-                    mileageTotal = miles * 0
-                Case > 500 'Miles greater than 500 charged at .10 cents per mile.
-                    mileageTotal += (miles - 500D) * 0.1D + 36D
-                Case Else 'Miles after free 200 is charged at .12 cents per mile.
-                    mileageTotal = (miles - 200D) * 0.12D
-            End Select
-        ElseIf KilometersRadioButton.Checked = True Then
-            mileageTotal = miles * 0.62D
+            Dim totalDiscount As Decimal
+            If AAACheckBox.Checked = True Then 'AAA members receive a 5% discount
+                totalDiscount = totalCharges * 0.05D
+            End If
+            If SeniorCheckBox.Checked = True Then 'senior citizens get a 3% discount.
+                totalDiscount += totalCharges * 0.03D
+            End If
+            MinusTextBox.Text = totalDiscount
+            MinusTextBox.Text = totalDiscount.ToString("C")
+
+            YouOwe = CDec(totalCharges - totalDiscount)
+            OweTextBox.Text = YouOwe.ToString("C")
+            SummaryButton.Enabled = True
+
+            totalCustomers += 1 'Total number of customers for the day
+            totalDistance += CDec(MilesDrTextBox.Text) 'Total distance driven in miles for the day
+            totalCharge += CDec(OweTextBox.Text) 'Total charges for the day
         End If
-        MileageTextBox.Text = mileageTotal.ToString("C")
-
-        Dim totalCharges As Decimal
-        totalCharges = CDec(DayCharTextBox.Text) + CDec(MileageTextBox.Text)
-
-        Dim totalDiscount As Decimal
-        If AAACheckBox.Checked = True Then 'AAA members receive a 5% discount
-            totalDiscount = totalCharges * 0.05D
-        End If
-        If SeniorCheckBox.Checked = True Then 'senior citizens get a 3% discount.
-            totalDiscount += totalCharges * 0.03D
-        End If
-        MinusTextBox.Text = totalDiscount
-        MinusTextBox.Text = totalDiscount.ToString("C")
-
-        YouOwe = CDec(totalCharges - totalDiscount)
-        OweTextBox.Text = YouOwe.ToString("C")
-        SummaryButton.Enabled = True
-
-        totalCustomers += 1 'Total number of customers for the day
-        totalDistance += CDec(MilesDrTextBox.Text) 'Total distance driven in miles for the day
-        totalCharge += CDec(OweTextBox.Text) 'Total charges for the day
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         'Clear User Input
@@ -182,7 +182,7 @@ Public Class CarRentalForm
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         Dim stringVariable As String
         stringVariable = "Total Customers:      " & totalCustomers.ToString & vbNewLine &
-            "Total Distance:          " & totalDistance.ToString("C") & vbNewLine &
+            "Total Distance:         " & totalDistance.ToString & vbNewLine &
             "Total Charge:            " & totalCharge.ToString("C")
         MessageBox.Show(stringVariable, "Detailed Summary")
     End Sub
