@@ -41,27 +41,27 @@ Partial Class EtchASketchForm
         '
         'ChaneColorButton
         '
-        Me.ChaneColorButton.Location = New System.Drawing.Point(41, 406)
+        Me.ChaneColorButton.Location = New System.Drawing.Point(12, 406)
         Me.ChaneColorButton.Name = "ChaneColorButton"
-        Me.ChaneColorButton.Size = New System.Drawing.Size(115, 45)
+        Me.ChaneColorButton.Size = New System.Drawing.Size(140, 59)
         Me.ChaneColorButton.TabIndex = 1
         Me.ChaneColorButton.Text = "Change Color"
         Me.ChaneColorButton.UseVisualStyleBackColor = True
         '
         'DrawButton
         '
-        Me.DrawButton.Location = New System.Drawing.Point(271, 408)
+        Me.DrawButton.Location = New System.Drawing.Point(334, 406)
         Me.DrawButton.Name = "DrawButton"
-        Me.DrawButton.Size = New System.Drawing.Size(115, 41)
+        Me.DrawButton.Size = New System.Drawing.Size(140, 59)
         Me.DrawButton.TabIndex = 2
         Me.DrawButton.Text = "Draw"
         Me.DrawButton.UseVisualStyleBackColor = True
         '
         'EraseButton
         '
-        Me.EraseButton.Location = New System.Drawing.Point(624, 406)
+        Me.EraseButton.Location = New System.Drawing.Point(648, 406)
         Me.EraseButton.Name = "EraseButton"
-        Me.EraseButton.Size = New System.Drawing.Size(115, 39)
+        Me.EraseButton.Size = New System.Drawing.Size(140, 61)
         Me.EraseButton.TabIndex = 3
         Me.EraseButton.Text = "Erase"
         Me.EraseButton.UseVisualStyleBackColor = True
@@ -69,7 +69,7 @@ Partial Class EtchASketchForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(418, 408)
+        Me.Label1.Location = New System.Drawing.Point(495, 418)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 4
